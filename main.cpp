@@ -4,6 +4,7 @@
 // Third party libraries
 #include "constants.h"
 #include "read.h"
+#include "coordinate.h"
 
 using namespace std;
 
