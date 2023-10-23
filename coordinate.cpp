@@ -1,6 +1,3 @@
-#ifndef COORDINATE_CPP
-#define COORDINATE_CPP
-
 #include "coordinate.h"
 
 #include <string>
@@ -8,47 +5,71 @@
 
 using namespace std;
 
+bool Coordinate::isValidIndex(int index) {
+    return index >= 0 && index <= 7;
+}
+
+bool Coordinate::isValidX(int x) {
+    return isValidIndex(x);
+}
+bool Coordinate::isValidY(int y) {
+    return isValidIndex(y);
+}
+bool Coordinate::isValidCoordinate(int x, int y) {
+    return isValidX(x) && isValidY(y);
+}
+
+bool Coordinate::isValidRank(int rank) {
+    return rank >= 1 && rank <= 8;
+}
+bool Coordinate::isValidFile(char file) {
+    return file >= 'a' && file <= 'h';
+}
+bool Coordinate::isValidTile(string tile) {
+    return tile.length() == 2 && isValidFile(tile[0]) && isValidRank(tile[1] - '0');
+}      
+
 Coordinate::Coordinate(int x, int y) {
     setCoordinate(x, y);
 }
 
 int Coordinate::getX() {
-    return x_index;
+    return this->x_index;
 }
 int Coordinate::getY() {
-    return y_index;
+    return this->y_index;
 }
 void Coordinate::setX(int x) {
     if (isValidX(x)) {
-        x_index = x;
+        this->x_index = x;
     }
 }
 void Coordinate::setY(int y) {
     if (isValidY(y)) {
-        y_index = y;
+        this->y_index = y;
     }
 }
 void Coordinate::setCoordinate(int x, int y) {
     if (isValidCoordinate(x, y)) {
-        x_index = x;
-        y_index = y;
+        this->x_index = x;
+        this->y_index = y;
     }
 }
 
 int Coordinate::getRank() {
-    return y_index + 1;
+    return this->y_index + 1;
 }
 char Coordinate::getFile() {
-    return x_index + 'a';
+    return this->x_index + 'a';
 }
 void Coordinate::setRank(int rank) {
     if (isValidRank(rank)) {
-        y_index = rank - 1;
+        this->y_index = rank - 1;
     }
 }
 void Coordinate::setFile(char file) {
     if (isValidFile(file)) {
-        x_index = file - 'a';
+        this->x_index = file - 'a';
     }
 }
 void Coordinate::setTile(string tile) {
@@ -59,10 +80,8 @@ void Coordinate::setTile(string tile) {
 }
 
 vector<int> Coordinate::getCoordinate() {
-    return {x_index, y_index};
+    return {this->x_index, this->y_index};
 }
 string Coordinate::getTile() {
     return to_string(getRank()) + string(1, getFile());
 }
-
-#endif // COORDINATE_CPP

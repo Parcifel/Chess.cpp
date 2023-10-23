@@ -10,29 +10,15 @@ class Coordinate {
         int x_index;
         int y_index;
 
-        bool isValidIndex(int index) {
-            return index >= 0 && index <= 7;
-        }
+        bool isValidIndex(int index);
 
-        bool isValidX(int x) {
-            return isValidIndex(x);
-        }
-        bool isValidY(int y) {
-            return isValidIndex(y);
-        }
-        bool isValidCoordinate(int x, int y) {
-            return isValidX(x) && isValidY(y);
-        }
+        bool isValidX(int x);
+        bool isValidY(int y);
+        bool isValidCoordinate(int x, int y);
 
-        bool isValidRank(int rank) {
-            return rank >= 1 && rank <= 8;
-        }
-        bool isValidFile(char file) {
-            return file >= 'a' && file <= 'h';
-        }
-        bool isValidTile(string tile) {
-            return tile.length() == 2 && isValidFile(tile[0]) && isValidRank(tile[1] - '0');
-        }       
+        bool isValidRank(int rank);
+        bool isValidFile(char file);
+        bool isValidTile(string tile);
 
     public:
         Coordinate(int x, int y);
