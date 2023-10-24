@@ -15,6 +15,8 @@ const string RESULTS_FILE {"output.board"};
 
 const string LINE {"-------------------------------------"};
 
+const int WHITE = 0;
+const int BLACK = 1;
 
 
 #endif

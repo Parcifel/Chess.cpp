@@ -25,6 +25,7 @@ class Coordinate {
 
     public:
         Coordinate();
+        Coordinate(string tile);
         Coordinate(int x, int y);
 
         int getX();
@@ -69,6 +70,8 @@ class Coordinate {
         bool operator>=(Coordinate& other);
         bool operator>=(string tile);
         bool operator>=(int coordinate[2]);
+
+        ostream& operator<<(ostream& os);
 
 };
 

@@ -34,6 +34,10 @@ Coordinate::Coordinate() {
     y_index = -1;
 }
 
+Coordinate::Coordinate(string tile) {
+    setTile(tile);
+}
+
 Coordinate::Coordinate(int x, int y) {
     setCoordinate(x, y);
 }
@@ -175,4 +179,9 @@ bool Coordinate::operator>=(string tile) {
 }
 bool Coordinate::operator>=(int coordinate[2]) {
     return this->x_index >= coordinate[0] && this->y_index >= coordinate[1];
+}
+
+ostream& operator<<(ostream& os, Coordinate& coordinate) {
+    os << coordinate.getTile();
+    return os;
 }

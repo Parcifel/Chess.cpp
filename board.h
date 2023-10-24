@@ -30,10 +30,11 @@ class Board {
     public:
 
         Board();
+        Board(vector<string> lines);
         Board(vector<string> board_lines, string status_line);
 
         Tile getTile(Coordinate coordinate);
-        Tile getTile(int x, int y);
+        Tile getTile(int row, int col);
 
         int activePlayer();
         bool canCastle(int player, bool king_side);
@@ -42,6 +43,7 @@ class Board {
 
         bool isInitialBoard();
 
+        string toString();
 
 };
 
