@@ -29,6 +29,11 @@ bool Coordinate::isValidTile(string tile) {
     return tile.length() == 2 && isValidFile(tile[0]) && isValidRank(tile[1] - '0');
 }      
 
+Coordinate::Coordinate() {
+    x_index = -1;
+    y_index = -1;
+}
+
 Coordinate::Coordinate(int x, int y) {
     setCoordinate(x, y);
 }
@@ -79,9 +84,95 @@ void Coordinate::setTile(string tile) {
     }
 }
 
+void Coordinate::reset() {
+    /**
+     * This function hard resets the coordinate to an invalid state.
+    */
+    this->x_index = -1;
+    this->y_index = -1;
+}
+
 vector<int> Coordinate::getCoordinate() {
     return {this->x_index, this->y_index};
 }
 string Coordinate::getTile() {
     return to_string(getRank()) + string(1, getFile());
+}
+
+bool Coordinate::isValid() {
+    return isValidCoordinate(this->x_index, this->y_index);
+}
+
+/* Equals */
+bool Coordinate::operator==(Coordinate& other) {
+    return this->x_index == other.getX() && this->y_index == other.getY();
+}
+bool Coordinate::operator==(string tile) {
+    return this->getTile() == tile;
+}
+bool Coordinate::operator==(int coordinate[2]) {
+    return this->x_index == coordinate[0] && this->y_index == coordinate[1];
+}
+
+/* Not Equals */
+bool Coordinate::operator!=(Coordinate& other) {
+    return this->x_index != other.getX() && this->y_index != other.getY();
+}
+bool Coordinate::operator!=(string tile) {
+    return this->getTile() != tile;
+}
+bool Coordinate::operator!=(int coordinate[2]) {
+    return this->x_index != coordinate[0] && this->y_index != coordinate[1];
+}
+
+/* Less Than */
+bool Coordinate::operator>(Coordinate& other) {
+    return this->x_index > other.getX() && this->y_index > other.getY();
+}
+bool Coordinate::operator>(string tile) {
+    Coordinate other;
+    other.setTile(tile);
+    return this->x_index > other.getX() && this->y_index > other.getY();
+}
+bool Coordinate::operator>(int coordinate[2]) {
+    return this->x_index > coordinate[0] && this->y_index > coordinate[1];
+}
+
+/* Greater Than */
+bool Coordinate::operator<(Coordinate& other) {
+    return this->x_index < other.getX() && this->y_index < other.getY();
+}
+bool Coordinate::operator<(string tile) {
+    Coordinate other;
+    other.setTile(tile);
+    return this->x_index < other.getX() && this->y_index < other.getY();
+}
+bool Coordinate::operator<(int coordinate[2]) {
+    return this->x_index < coordinate[0] && this->y_index < coordinate[1];
+}
+
+/* Less Than or Equal To */
+bool Coordinate::operator<=(Coordinate& other) {
+    return this->x_index <= other.getX() && this->y_index <= other.getY();
+}
+bool Coordinate::operator<=(string tile) {
+    Coordinate other;
+    other.setTile(tile);
+    return this->x_index <= other.getX() && this->y_index <= other.getY();
+}
+bool Coordinate::operator<=(int coordinate[2]) {
+    return this->x_index <= coordinate[0] && this->y_index <= coordinate[1];
+}
+
+/* Greater Than or Equal To */
+bool Coordinate::operator>=(Coordinate& other) {
+    return this->x_index >= other.getX() && this->y_index >= other.getY();
+}
+bool Coordinate::operator>=(string tile) {
+    Coordinate other;
+    other.setTile(tile);
+    return this->x_index >= other.getX() && this->y_index >= other.getY();
+}
+bool Coordinate::operator>=(int coordinate[2]) {
+    return this->x_index >= coordinate[0] && this->y_index >= coordinate[1];
 }

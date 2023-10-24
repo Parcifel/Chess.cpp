@@ -5,6 +5,7 @@
 #include "constants.h"
 #include "read.h"
 #include "coordinate.h"
+#include "board.h"
 
 using namespace std;
 
@@ -29,20 +30,18 @@ int main() {
     cout << LINE << endl;
     cout << "Loading game: " << game_name << "..." <<  endl;
 
-    vector<string> board = readBoard(game_name);
-    vector<string> moves = readMoves(game_name);
+    vector<string>* board = readBoard(game_name);
+    vector<string>* moves = readMoves(game_name);
 
-    cout << LINE << endl;
-    cout << "Board: " << endl;
-    for (string line : board) {
-        cout << line << endl;
+    vector<string> board_lines;
+    for (int i = 0; i < 8; i++) {
+        board_lines.push_back((*board)[i]);
     }
+    string status_line = (*board)[8];
+    // delete[] board;
 
-    cout << LINE << endl;
-    cout << "Moves: " << endl;
-    for (string move : moves) {
-        cout << move << endl;
-    }
+    Board board_obj(board_lines, status_line);
+
 
 
 

@@ -5,5 +5,6 @@ Piece::Piece() {
     this->color = "";
 }
 
-string Piece::toString() {
-    return "P"}
+char Piece::toString() {
+    return 'P';
+}

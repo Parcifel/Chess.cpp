@@ -1,3 +1,6 @@
+#ifndef COORDINATE_H
+#define COORDINATE_H
+
 #include <string>
 #include <vector>
 #include <cassert>
@@ -21,6 +24,7 @@ class Coordinate {
         bool isValidTile(string tile);
 
     public:
+        Coordinate();
         Coordinate(int x, int y);
 
         int getX();
@@ -35,8 +39,38 @@ class Coordinate {
         void setFile(char file);
         void setTile(string tile);
 
+        void reset();
+
         vector<int> getCoordinate();
         string getTile();
 
+        bool isValid();
+
+        bool operator==(Coordinate& other);
+        bool operator==(string tile);
+        bool operator==(int coordinate[2]);
+
+        bool operator!=(Coordinate& other);
+        bool operator!=(string tile);
+        bool operator!=(int coordinate[2]);
+
+        bool operator<(Coordinate& other);
+        bool operator<(string tile);
+        bool operator<(int coordinate[2]);
+
+        bool operator>(Coordinate& other);
+        bool operator>(string tile);
+        bool operator>(int coordinate[2]);
+
+        bool operator<=(Coordinate& other);
+        bool operator<=(string tile);
+        bool operator<=(int coordinate[2]);
+
+        bool operator>=(Coordinate& other);
+        bool operator>=(string tile);
+        bool operator>=(int coordinate[2]);
+
 };
+
+#endif // COORDINATE_H
 

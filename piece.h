@@ -12,8 +12,7 @@ class Piece {
 
     public:
         Piece();
-
-        string toString();
+        char toString();
 };
 
 #endif // PIECE_H

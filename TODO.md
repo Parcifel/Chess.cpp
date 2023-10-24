@@ -3,5 +3,7 @@
 ## TODO
 
 - [ ] Add data structures like struct and coordinate
-- [ ] Add classes for tiles and board
+- [x] Add class for tiles
+- [ ] Add class for board
+- [ ] Create Piece classe and inherit from it
 - [ ] Read and validate the initial board state

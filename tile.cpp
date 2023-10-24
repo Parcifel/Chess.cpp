@@ -1,7 +1,8 @@
 #include "tile.h"
+#include "panel.h"
 
-Tile::Tile() {
-    this->occupant = nullptr;
+Tile::Tile(Piece* occupant) {
+    this->occupant = occupant;
 }
 
 void Tile::setOccupant(Piece* occupant) {
@@ -16,11 +17,11 @@ bool Tile::isOccupied() {
     return this->occupant != nullptr;
 }
 
-string Tile::toString() {
+char Tile::toString() {
     if (this->isOccupied()) {
         return this->occupant->toString();
     } else {
-        return ".";
+        return '.';
     }
 }
 

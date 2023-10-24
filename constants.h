@@ -5,11 +5,16 @@
 
 using namespace std;
 
+const bool DEBUG {true};
+const bool GUI {false};
+
 const string GAMES_FOLDER {"games"};
 const string BOARD_FILE {"initial.board"};
 const string MOVES_FILE {"moves.game"};
 const string RESULTS_FILE {"output.board"};
 
 const string LINE {"-------------------------------------"};
+
+
 
 #endif

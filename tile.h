@@ -13,12 +13,13 @@ class Tile {
 
     public:
         Tile() = default;
+        Tile(Piece* occupant);
 
         void setOccupant(Piece* occupant);
         Piece* getOccupant();
         bool isOccupied();
 
-        string toString();
+        char toString();
 
 };
 

@@ -22,7 +22,7 @@ inline bool directoryExists(const string& directory_name) {
     return fs::exists(directory);
 }
 
-inline vector<string> readFile(const string& file_name) {
+inline vector<string>* readFile(const string& file_name) {
     if (!fileExists(file_name)) {
         string error = "File " + file_name + " does not exist!";
         throw runtime_error(error);
@@ -37,7 +37,7 @@ inline vector<string> readFile(const string& file_name) {
     }
 
     file.close();
-    return lines;
+    return new vector<string>(lines);
 }
 
 vector<string> listDirectory(const string& directory_name) {
@@ -106,12 +106,12 @@ string getGame() {
     return game_name;
 }
 
-vector<string> readBoard(const string& game_name) {
+vector<string>* readBoard(const string& game_name) {
     string board_file = game_name + "/" + BOARD_FILE;
     return readFile(board_file);
 }
 
-vector<string> readMoves(const string& game_name) {
+vector<string>* readMoves(const string& game_name) {
     string moves_file = game_name + "/" + MOVES_FILE;
     return readFile(moves_file);
 }
